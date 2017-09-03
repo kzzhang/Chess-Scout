@@ -10,13 +10,11 @@ var resultsEnum = {
 	DRAW: '1/2-1/2'
 }
 
-function parseFile(file) {
+function parseFile(file, parseCallback) {
 	// Data to save
 	var games = [];
 	var currentGameArgs = {};
 	var moves = '';
-
-	var total = 0;
 
 	var ifstream = fs.createReadStream(file);
 	var rl = readLine.createInterface({
@@ -30,9 +28,6 @@ function parseFile(file) {
 			var attribute = data.substring(0, firstSpace);
 			var content = data.substring(firstSpace + 2, data.length - 1);
 			currentGameArgs[attribute] = content;
-			if (attribute == "WhiteElo") {
-				total += parseInt(content);
-			}
 		} else if (line.length > 0) {
 			moves += line;
 			if (containsResult(line)) {
@@ -44,8 +39,8 @@ function parseFile(file) {
 		}
 	});
 
-	rl.on('close', function(){
-		return games;
+	rl.on('close', function() {
+		parseCallback(games);
 	});
 
 	ifstream.on('end', function() {
@@ -62,9 +57,5 @@ function containsResult(input) {
 	}
 	return false;
 }
-
-parseFile('./assets/stub/twic1189.pgn', function(error) {
-	console.log(error);
-});
 
 module.exports = parseFile;
