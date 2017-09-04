@@ -1,0 +1,37 @@
+{
+  "name": "chess-scout",
+  "version": "1.0.0",
+  "description": "Backend server to retrieve, parse, and email chess newsletters.",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.15.4"
+  },
+  "engines": {
+    "node": "8.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kzzhang/Chess-Scout.git"
+  },
+  "keywords": [
+    "Node.js",
+    "chess",
+    "elo",
+    "openings",
+    "mongoDB",
+    "Express",
+    "React",
+    "Javascript"
+  ],
+  "author": "Kevin Zhang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kzzhang/Chess-Scout/issues"
+  },
+  "homepage": "https://github.com/kzzhang/Chess-Scout#readme"
+}
