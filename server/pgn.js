@@ -67,6 +67,11 @@ module.exports = class Pgn {
 		} else {
 			this.Opening = undefined;
 		}
+		if ('Variation' in argMap) {
+			this.Variation = argMap['Variation'];
+		} else {
+			this.Variation = undefined;
+		}
 		if ('WhiteFideId' in argMap) {
 			this.WhiteFideId = argMap['WhiteFideId'];
 		} else {

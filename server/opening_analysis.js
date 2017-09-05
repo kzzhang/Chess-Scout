@@ -2,7 +2,7 @@
 
 var pgn_parser = require('./pgn_parser.js');
 
-pgn_parser('./assets/stub/twic1189.pgn', function(games) {
+pgn_parser.parseFile('./assets/stub/twic1189.pgn', function(games) {
 	games.forEach(function(game){
 		console.log(game['Opening']);
 		//TODO

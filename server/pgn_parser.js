@@ -48,6 +48,49 @@ function parseFile(file, parseCallback) {
 	});
 }
 
+/**
+*** Sort list of games (input) by opening
+*** Returns games found with specified opening
+*** Opening and Eco strings are all optional -> Opening strings should follow format from eco.json file
+**/
+function findGames(games, opening, eco) {
+	var parsed = [];
+	var indexComma = opening.indexOf(',');
+	var abbreviatedOpening = '';
+	var temp = opening;
+	var variation = undefined;
+	if (indexComma != -1) {
+		variation = temp.substring(indexComma + 2, temp.length);
+		temp = temp.substring(0, indexComma);
+	}
+	var mainLine = temp;
+
+	while (temp.indexOf(' ') != -1) {
+		abbreviatedOpening += temp[0];
+		temp = temp.substring(temp.indexOf(' ') + 1, temp.length);
+	}
+	abbreviatedOpening += temp[0];
+	games.forEach(function(individualGame) {
+		if (individualGame['Eco'] == undefined || individualGame['Eco'].toUpperCase() === eco.toUpperCase()) {
+			if (individualGame['Opening'] == undefined) {
+				parsed.push(individualGame);
+			} else {
+				if (individualGame['Opening'].toUpperCase().indexOf(mainLine.toUpperCase()) != -1 
+					|| individualGame['Opening'].toUpperCase().indexOf(abbreviatedOpening.toUpperCase()) != -1) {
+					if (variation == null || individualGame['Variation'] == undefined || variation.toUpperCase() === individualGame['Variation']) {
+						parsed.push(individualGame);
+					}
+				}
+			}
+		}
+	});
+	return parsed;
+}
+
+/**
+*** Function to determine whether or not a string contains a result tag (1-0, 1/2-1/2, 0-1)	
+*** Returns true if found, false otherwise
+**/
 function containsResult(input) {
 	for (var result in resultsEnum) {
 		var value = resultsEnum[result];
@@ -58,4 +101,7 @@ function containsResult(input) {
 	return false;
 }
 
-module.exports = parseFile;
+module.exports = {
+	parseFile: parseFile,
+	findGames: findGames
+}
