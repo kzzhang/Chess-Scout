@@ -1,0 +1,29 @@
+h1 {
+	font-size: 30px;
+  color : white;
+}
+
+h2 {
+	font-size: 30px;
+  color : white;
+}
+
+html { 
+  background: url(ChessScoutBackground.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+}
+
+.ui-float-label{
+	float: middle;
+  color: white;
+}
+
+
