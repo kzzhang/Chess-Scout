@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UserHomeComponent } from './user-home/user-home.component';
-import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
@@ -9,8 +9,17 @@ const routes: Routes = [
     component: UserHomeComponent
   },
   {
+    path: 'register',
+    component: UserHomeComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
     path: '',
-    component: AppComponent
+    redirectTo: '/login',
+    pathMatch: 'full'
   }
 ];
 
@@ -20,4 +29,3 @@ const routes: Routes = [
 })
 
 export class AppRoutingModule { }
-export const appRouterModule = RouterModule.forRoot(routes);

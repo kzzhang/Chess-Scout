@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import {InputTextModule} from 'primeng/primeng';
-import { ActivatedRoute, Router} from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';;
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class AppComponent  {
-  
-   constructor(
+export class LoginComponent {
+
+  constructor(
        private route: ActivatedRoute,
        private router: Router){
     }
@@ -22,4 +22,5 @@ export class AppComponent  {
       let link = ['register'];
       this.router.navigate(link);
     }
+
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TabViewModule} from 'primeng/primeng';
 
 @Component({
   selector: 'app-user-home',
