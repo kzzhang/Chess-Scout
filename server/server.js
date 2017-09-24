@@ -21,8 +21,11 @@ app.post('/users', function(req, res) {
 	};
 	server.addUser(user, function(err, data) {
 		if (err) {
+			res.status(400);
 			res.end(err.message);
 		} else {
+			res.type('json')
+			res.status(200);
 			res.end(JSON.stringify(data));
 		}
 	});
