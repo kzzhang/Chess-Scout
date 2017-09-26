@@ -17,7 +17,7 @@ module.exports = class user {
 		if ('openings' in argMap) {
 			this.openings = argMap['openings'];
 		} else {
-			this.openings = null;
+			this.openings = [];
 		}
 	}
 
