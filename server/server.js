@@ -21,8 +21,12 @@ app.post('/users', function(req, res) {
 	};
 	server.addUser(user, function(err, data) {
 		if (err) {
+			res.type('json')
 			res.status(400);
-			res.end(err.message);
+			var object = {
+				error: err.message
+			}
+			res.end(JSON.stringify(object));
 		} else {
 			res.type('json')
 			res.status(200);
@@ -31,12 +35,17 @@ app.post('/users', function(req, res) {
 	});
 });
 
+// always returns success
 app.delete('/users', function(req, res) {
 	var username = req.body.username;
 	server.removeUser(username, function(err) {
 		if (err) {
+			res.type('json')
 			res.status(400);
-			res.end(err.message);
+			var object = {
+				error: err.message
+			}
+			res.end(JSON.stringify(object));
 		} else {
 			res.status(200);
 			res.end();
@@ -46,15 +55,19 @@ app.delete('/users', function(req, res) {
 
 app.get('/users/:username/openings', function(req, res) {
 	var username = req.params.username;
-	server.getOpenings(username, function(err, data) {
-		if (err) {
+	server.searchForUsername(username, function(err, data) {
+		if (err || data.length == 0) {
+			res.type('json')
 			res.status(400);
-			res.end(err.message);
+			var object = {
+				error : err != null ? err.message : "No user found"
+			}
+			res.end(JSON.stringify(object));
 		} else {
 			res.type('json');
 			res.status(200);
 			var object = {
-				openings: data
+				openings: data[0].openings
 			}
 			res.end(JSON.stringify(object));
 		}
@@ -66,10 +79,14 @@ app.put('/users/:username/openings', function(req, res) {
 	var username = req.params.username;
 	var openings = req.body.openings;
 	if (openings != undefined && openings != null) {
-		server.updateOpenings(username, openings, function(err) {
+		server.setOpenings(username, openings, function(err) {
 			if (err) {
+				res.type('json')
 				res.status(400);
-				res.end(err.message);
+				var object = {
+					error: err.message
+				}
+				res.end(JSON.stringify(object));
 			} else {
 				res.status(200);
 				res.end();
