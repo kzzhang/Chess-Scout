@@ -1,10 +1,11 @@
 <html>
-	<p-tabView>
-	    <p-tabPanel header="Home">
-	       <app-user-main></app-user-main>
-	    </p-tabPanel>
-	    <p-tabPanel header="User Settings">
-	       <app-user-settings></app-user-settings>
-	    </p-tabPanel>
-	</p-tabView>
+	<md-tab-group backgroundColor = '#ff0000'>
+	  <md-tab label="Home" styleClass = "headLabel">
+	    <app-user-main></app-user-main>
+	  </md-tab>
+	  <md-tab label="User Settings" styleClass = "headLabel">
+	    <app-user-settings></app-user-settings>
+	  </md-tab>
+	</md-tab-group>
+	
 </html>

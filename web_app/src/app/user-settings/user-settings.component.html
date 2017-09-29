@@ -1,0 +1,47 @@
+<h1> Filter Options </h1>
+ 
+<md-select class = "filterOne" placeholder="White Rating" [(ngModel)]="myWRating">
+   <md-option *ngFor="let wRating of wRatings" [value]="wRating.code">{{ wRating.name }}</md-option>
+</md-select>
+
+<br/>
+<br/>
+
+<md-select class = "filterOne" placeholder="Black Rating" [(ngModel)]="myBRating">
+   <md-option *ngFor="let bRating of bRatings" [value]="bRating.code">{{ bRating.name }}</md-option>
+</md-select>
+
+<br/>
+<br/>
+
+<md-select class = "filterOne" placeholder="Maximum Number of Games Displayed" [(ngModel)]="myMaxGames">
+   <md-option *ngFor="let maxGame of maxGames" [value]="maxGame.code">{{ maxGame.name }}</md-option>
+</md-select>
+
+<p-autoComplete [(ngModel)]="texts" [suggestions]="results" (completeMethod)="search($event)" [multiple]="true"></p-autoComplete>
+
+<h1> User Settings </h1>
+
+
+<button pButton type="button" class = "settingsButtons" label="Discontinue Emails" (click)="discontinueEmails()"></button>
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+<button pButton type="button" class = "settingsButtons" label="Change Password" (click)="changePassword()"></button>
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+<button pButton type="button" class = "settingsButtons" label="Delete Account" (click)="deleteAccount()"></button>
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+<button pButton type="button" class = "settingsButtons" label="Logout" (click)="logout()"></button>

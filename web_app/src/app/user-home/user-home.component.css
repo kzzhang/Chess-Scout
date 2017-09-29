@@ -1,5 +1,6 @@
 html {
     background-image: url(chessScoutTop.png) ; 
+    background-repeat: repeat-x;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -8,5 +9,9 @@ html {
   top:0;
   left:0;
   right:0;
-
  }
+
+.headLabel{
+
+  color: red;
+}

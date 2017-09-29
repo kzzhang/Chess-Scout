@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-user-main',
   templateUrl: './user-main.component.html',
@@ -11,5 +12,8 @@ export class UserMainComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  myOpening = '';
+  openings = [{code: 'Sicillian', name: 'Sicillian'}, {code: 'Queens Gambit', name: 'Queens Gambit'}, {code: 'Nimzowitz', name: 'Nimzowitz'}];
 
 }

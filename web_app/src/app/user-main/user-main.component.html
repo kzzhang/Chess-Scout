@@ -1,0 +1,27 @@
+<!--<nywton-chessgame
+  data-game="game" 
+  data-board="boardA"
+></nywton-chessgame> -->
+
+<div class="container">
+            <div class="leftpane" style="overflow-y: scroll;">
+            
+            <h1> List of Games </h1>
+
+            <md-select class = "openings" placeholder="Choose an opening" [(ngModel)]="myOpening">
+			   <md-option *ngFor="let opening of openings" [value]="opening.code">{{ opening.name }}</md-option>
+			</md-select>
+
+            </div>
+
+            <div class="middlepane"> 
+
+
+            </div>
+            
+            <div class="rightpane">
+
+            <h2> Moves </h2>
+
+            </div>
+</div>

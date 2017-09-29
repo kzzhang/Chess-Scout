@@ -1,0 +1,43 @@
+.container{
+    width: available;
+    height: available;
+}
+
+.leftpane{
+    width: 20%;
+    min-width: 330px;
+    height: available;
+    min-height: 690px;
+    float: left;
+    border-collapse: collapse;
+}
+
+.middlepane{
+   width: 60%;
+   min-width: 800px;
+   height: available;
+   min-height: 690px;
+   float: left;
+   color: red;
+   border-collapse: collapse;
+}
+
+.rightpane{
+    width: available;
+    height: available;
+    min-height: 690px;
+    position: relative;
+    margin-left: 75%;
+    border-collapse: collapse;
+}
+
+h1 {
+	margin-left: 15%;
+	float: top;
+}
+
+h2 {
+	float: right;
+	margin-right: 30%;
+	float: top;
+}
