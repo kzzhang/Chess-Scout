@@ -1,4 +1,4 @@
-var uri = process.env.MONGODB_URI || 'mongodb://localhost:3000';
+var uri = process.env.MONGODB_URI; //|| 'mongodb://localhost:3000';
 var url = uri + '/data';
 var mongo = require('mongodb').MongoClient;
 var user = require('./user.js')
